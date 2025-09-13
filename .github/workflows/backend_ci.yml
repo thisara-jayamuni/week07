@@ -135,8 +135,3 @@ jobs:
       run: |
         docker build -t ${{ env.ACR_LOGIN_SERVER }}/order_service:latest ./backend/order_service/
         docker push ${{ env.ACR_LOGIN_SERVER }}/order_service:latest
-
-    # Logout from Azure for security (runs even if image push fails)
-    - name: Logout from Azure
-      run: az logout
-      if: always()
